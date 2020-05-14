@@ -1,0 +1,20 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown:hover .dropdown-menu:before {
+    position: absolute;
+
+    border-bottom: 8px dashed #667eea;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    top: 0;
+    right: 15%;
+    content: "";
+
+    display: inline-block;
+    margin-top: -10px;
+    margin-left: -10px;
+    z-index: 99;
+}
+
