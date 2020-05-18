@@ -8,10 +8,10 @@
                         <div class="flex flex-wrap w-auto justify-center text-white rounded-lg items-center">
 
                             <a href="{{route('post.index')}}"
-                               class="w-auto text-center py-2 px-12 rounded-l-full hover:bg-gray-900 hover:text-white {{ Request::path() === 'lunch-offers' ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}">All</a>
+                               class="w-auto text-center py-2 lg:px-8 md:px-6 sm:px-2 px-0 rounded-l-full hover:bg-gray-900 hover:text-white {{ Request::path() === 'lunch-offers' ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}">All</a>
                             @forelse($tags as $tag)
 
-                                <a href="{{ route('post.custom',['tags'=> $tag]) }}"  class="inline-block w-auto text-center py-2 px-12 bg-gray-300 hover:bg-gray-900 hover:text-white {{ Request::path() === str_replace ('http://127.0.0.1:8000/','',route('post.custom',['tags'=> $tag])) ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}   @if($loop->last) rounded-r-full @endif ">{{ $tag }}</a>
+                                <a href="{{ route('post.custom',['tags'=> $tag]) }}"  class="inline-block w-auto text-center py-2 lg:px-8 md:px-4 sm:px-2 px-0 bg-gray-300 hover:bg-gray-900 hover:text-white {{ Request::path() === str_replace ('http://127.0.0.1:8000/','',route('post.custom',['tags'=> $tag])) ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}   @if($loop->last) rounded-r-full @endif ">{{ $tag }}</a>
                             @empty
                                 <div class="flex">
                                     <h1 class="items-center text-center font-bold">No records found</h1>
