@@ -15,14 +15,14 @@ class PostController extends Controller
      */
     public function index()
     {
-        if (request('tags')) {
-            $posts = Tag::where('name', request('tags'))->firstOrFail()->posts;
-            $post_collection = Post::with('tags')->get();
-            $tags = $post_collection->pluck('tags')->collapse()->pluck('name')->unique();
-            return view('post.index', ['posts' => $posts], compact('tags'));
-        }
-        $posts = Post::latest()->get();
-        $post_collection = Post::with('tags')->get();
+        $posts = Post::latest()->get(); // Gets latest Posts
+
+
+        $post_collection = Post::with('tags')->get(); // For each Post eager load Tags relation
+        // When accessing Eloquent relationships as properties, the relationship data is "lazy loaded"
+        // This means the relationship data is not actually loaded until you first access the property
+        // Eager loading alleviates the N + 1 query problem
+        // This problem occurs when the code needs to load the children of a parent-child relationship (the “many” in the “one-to-many”)
         $tags = $post_collection->pluck('tags')->collapse()->pluck('name')->unique();
 
         return view('post.index', ['posts' => $posts], compact('tags'));

@@ -5,13 +5,13 @@
         <div class="flex-1 justify-evenly">
             <div class="container mx-auto">
                     <div class="text-center mb-16 mt-16">
-                        <div class="flex flex-wrap w-auto justify-center text-white rounded-lg items-center">
-
+                        <div class="flex lg:flex-wrap w-auto justify-center text-white rounded-lg items-center">
+    
                             <a href="{{route('post.index')}}"
-                               class="w-auto text-center py-2 lg:px-8 md:px-6 sm:px-2 px-0 rounded-l-full hover:bg-gray-900 hover:text-white {{ Request::path() === 'lunch-offers' ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}">All</a>
+                               class="w-auto text-center py-2 lg:px-8 md:px-6 sm:px-2 px-2 rounded-l-full hover:bg-gray-900 hover:text-white {{ Request::path() === 'lunch-offers' ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}">All</a>
                             @forelse($tags as $tag)
 
-                                <a href="{{ route('post.custom',['tags'=> $tag]) }}"  class="inline-block w-auto text-center py-2 lg:px-8 md:px-4 sm:px-2 px-0 bg-gray-300 hover:bg-gray-900 hover:text-white {{ Request::path() === str_replace ('http://127.0.0.1:8000/','',route('post.custom',['tags'=> $tag])) ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}   @if($loop->last) rounded-r-full @endif ">{{ $tag }}</a>
+                                <a href="{{ route('post.custom',['tags'=> $tag]) }}"  class="inline-block w-auto text-center py-2 lg:px-8 md:px-4 sm:px-2 px-2 bg-gray-300 hover:bg-gray-900 hover:text-white {{ Request::path() === str_replace ('http://127.0.0.1:8000/','',route('post.custom',['tags'=> $tag])) ? 'bg-gray-900 ' : 'bg-gray-300 text-indigo-500' }}   @if($loop->last) rounded-r-full @endif ">{{ $tag }}</a>
                             @empty
                                 <div class="flex">
                                     <h1 class="items-center text-center font-bold">No records found</h1>
@@ -26,11 +26,11 @@
                                     <a class="h-full w-full lg:flex"  href="{{route('post.show', $post)}}">
                                         <img alt="{{$post->title}}" id="image" class="w-32 h-32 rounded-full mx-auto shadow-md" src="{{ asset('storage/images/'.$post->image)}}">
                                         <div class="ml-6 flex-1 items-center">
-                                            <div class="flex border-b border-dashed border-gray-600 mb-4">
-                                                <div class="flex"><p class="font-bold text-gray-700 text-xl">{{$post->title}} </p></div>
-                                                <div class="flex-1 text-right"><p class="font-bold text-purple-600 text-lg mb-4">${{$post->price}}</p></div>
+                                            <div class="lg:flex lg:border-b border-dashed border-gray-600 mb-4 sm:justify-evenly">
+                                                <div class="flex sm:justify-center justify-center sm:mt-2 lg:mt-0"><p class="font-bold text-gray-700 text-xl">{{$post->title}} </p></div>
+                                                <div class="flex-1 lg:text-right sm:text-center text-center sm:mt-2 lg:mt-0"><p class="font-bold text-purple-600 text-lg mb-4">${{$post->price}}</p></div>
                                             </div>
-                                            <div class="flex"><p class="text-black font-bold text-lg">{{$post->excerpt}}</p></div>
+                                            <div class="flex lg:justify-start sm:justify-center justify-center"><p class="text-black font-bold text-lg text-center sm:text-center lg:text-base">{{$post->excerpt}}</p></div>
                                         </div>
                                     </a>
                                 </div>

@@ -13,7 +13,8 @@
                 <div class="flex justify-evenly mt-4">
                         <div class="">
                             <a href="{{ route('tags.edit',$tag) }}" class="inline-block bg-purple-700 border-2 rounded-full border-purple-700 px-3 py-1 text-xs font-semibold text-white mr-2 hover:bg-transparent hover:text-purple-700 hover:border-purple-700 focus:border-purple-700">
-                                #Edit-this-record</a>
+                                #Edit-this-record
+                            </a>
                         </div>
                     <form method="POST" action="{{ action('TagsController@destroy',$tag) }}">
                         @csrf

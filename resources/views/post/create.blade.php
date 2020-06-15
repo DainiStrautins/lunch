@@ -44,7 +44,7 @@
 
             <label class="block text-gray-700 text-lg font-bold mb-1 mt-6 pl-1" for="body">Body</label>
             <label>
-            <textarea name="body" id="" cols="10" rows="3" placeholder="Body" class="border p-2 w-full @error('body') border border-red-500 @enderror" value="{{ old('body') }}"></textarea>
+            <textarea name="body" id="" cols="10" rows="3" placeholder="Body" class="border p-2 w-full @error('body') border border-red-500 @enderror">{{ old('body') }}</textarea>
             </label>
                 @error('body')
                 <span class="text-red-500 text-xs" role="alert">
@@ -52,14 +52,17 @@
                 </span>
             @enderror
             <div class="flex items-baseline space-x-2 mt-2">
-                <div class="w-full md:w-1/2 px-3">
+                <div class="w-full md:w-1/2">
                     <div class="flex items-center justify-start">
-                        <div class="inline-block relative w-64 mt-4 mx-6">
-                            <select name="tags[]" multiple class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline @error('tags') border border-red-500 @enderror">
-                               @foreach ($tags as $tag)
-                                    <option value="{{$tag->id}}">{{$tag->name}}</option>
-                                @endforeach
-                            </select>
+                        <div class="inline-block relative w-64 mt-4 mr-6">
+                            <label class="block text-gray-700 text-lg font-bold mb-1">
+                                Tags
+                                <select name="tags[]" multiple class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline @error('tags') border border-red-500 @enderror">
+                                   @foreach ($tags as $tag)
+                                        <option value="{{$tag->id}}">{{$tag->name}}</option>
+                                    @endforeach
+                                </select>
+                            </label>
                             @error('tags')
                             <span class="text-red-500 text-xs" role="alert">
                                  <strong>{{ $message }}</strong>
